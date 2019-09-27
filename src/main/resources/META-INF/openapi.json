@@ -1,0 +1,185 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "locations-demo34",
+        "version": "1.0.0",
+        "description": "locations-demo34"
+    },
+    "paths": {
+        "/locations": {
+            "description": "todas las ubicaciones",
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/locations"
+                                    }
+                                },
+                                "examples": {
+                                    "all": {
+                                        "value": [
+                                            {
+                                                "id": 1,
+                                                "name": "International Inc Corporate Office",
+                                                "location": {
+                                                    "lat": 51.5013673,
+                                                    "lng": -0.1440787
+                                                },
+                                                "type": "headquarter",
+                                                "status": "1"
+                                            },
+                                            {
+                                                "id": 2,
+                                                "name": "International Inc North America",
+                                                "location": {
+                                                    "lat": 40.6976701,
+                                                    "lng": -74.259876
+                                                },
+                                                "type": "office",
+                                                "status": "1"
+                                            },
+                                            {
+                                                "id": 3,
+                                                "name": "International Inc France",
+                                                "location": {
+                                                    "lat": 48.859,
+                                                    "lng": 2.2069746
+                                                },
+                                                "type": "office",
+                                                "status": "1"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": "todas las respuestas locations"
+                    }
+                }
+            }
+        },
+        "/locations/bbva/{id}/": {
+            "get": {
+                "parameters": [
+                    {
+                        "examples": {
+                            "pruebas": {
+                                "value": [
+                                    {
+                                        "id": 1,
+                                        "name": "International Inc Corporate Office",
+                                        "location": {
+                                            "lat": 51.5013673,
+                                            "lng": -0.1440787
+                                        },
+                                        "type": "headquarter",
+                                        "status": "1"
+                                    },
+                                    {
+                                        "id": 2,
+                                        "name": "International Inc North America",
+                                        "location": {
+                                            "lat": 40.6976701,
+                                            "lng": -74.259876
+                                        },
+                                        "type": "office",
+                                        "status": "1"
+                                    },
+                                    {
+                                        "id": 3,
+                                        "name": "International Inc France",
+                                        "location": {
+                                            "lat": 48.859,
+                                            "lng": 2.2069746
+                                        },
+                                        "type": "office",
+                                        "status": "1"
+                                    }
+                                ]
+                            }
+                        },
+                        "name": "id",
+                        "schema": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+
+                            }
+                        },
+                        "description": "pruebas get"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "name": "id",
+                    "schema": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        }
+    },
+    "components": {
+        "schemas": {
+            "locations": {
+                "title": "Root Type for locations",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "object",
+                        "properties": {
+                            "lat": {
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "lng": {
+                                "format": "double",
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "name": "International Inc Corporate Office",
+                    "location": {
+                        "lat": 51.5013673,
+                        "lng": -0.1440787
+                    },
+                    "type": "headquarter",
+                    "status": "1"
+                }
+            }
+        }
+    }
+}
